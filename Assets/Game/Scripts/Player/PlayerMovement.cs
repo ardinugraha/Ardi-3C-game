@@ -260,8 +260,8 @@ public class PlayerMovement : MonoBehaviour
             Vector3 rotationDegree = transform.rotation.eulerAngles;
             rotationDegree.x += _glideRotationSpeed.x * axisDirection.y;
             rotationDegree.x = Mathf.Clamp(rotationDegree.x, _minGlideRotationX, _maxGlideRotationX);
-            rotationDegree.z += _glideRotationSpeed.z * axisDirection.x;
-            rotationDegree.y += _glideRotationSpeed.y * axisDirection.x;
+            rotationDegree.z += _glideRotationSpeed.z * axisDirection.x * Time.deltaTime;
+            rotationDegree.y += _glideRotationSpeed.y * axisDirection.x * Time.deltaTime;
             //Debug.Log(rotationDegree);
             Vector3 position = transform.position;
             //Debug.Log("Glide Position: " + position);
