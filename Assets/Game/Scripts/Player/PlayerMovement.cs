@@ -116,6 +116,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private Transform _topDetector;
+    [SerializeField]
+    private PlayerAudioManager _playerAudioManager;
 
 
 	private void Start()
@@ -566,6 +568,7 @@ private void Crouch()
             _cameraManager.SetFPSClampedCamera(true, transform.rotation.eulerAngles);
             _playerStance = PlayerStance.Glide;
             _animator.SetBool("IsGliding", true);
+            _playerAudioManager.PlayGlideSfx();
         }
     }
  
@@ -575,6 +578,7 @@ private void Crouch()
         {
             _playerStance = PlayerStance.Stand;
             _animator.SetBool("IsGliding", false);
+            _playerAudioManager.StopGlideSfx();
         }
     }
 
@@ -639,5 +643,7 @@ private void Crouch()
             }
         }
     }
+
+
 
 }

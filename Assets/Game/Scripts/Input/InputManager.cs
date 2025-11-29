@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     public Action OnGlideInput;
     public Action OnCancelGlide;
     public Action OnPunchInput;
+    public Action OnMainMenuInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -170,9 +171,15 @@ public class InputManager : MonoBehaviour
     
         if (isPressMainMenuInput)
         {
-            //Debug.Log("Back To Main Menu");
+            if (OnMainMenuInput != null)
+            {
+                OnMainMenuInput();
+            }
         }
     }
+
+ 
+    
 
     	
  
