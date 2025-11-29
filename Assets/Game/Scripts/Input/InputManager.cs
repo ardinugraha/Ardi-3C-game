@@ -11,6 +11,11 @@ public class InputManager : MonoBehaviour
     public Action OnJumpInput;
     public Action OnClimbInput;
     public Action OnCancelClimb;
+    public Action OnChangePOV;
+    public Action OnCrouchInput;
+    public Action OnGlideInput;
+    public Action OnCancelGlide;
+    public Action OnPunchInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +54,7 @@ public class InputManager : MonoBehaviour
         bool isHoldSprintInput = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         if (isHoldSprintInput)
         {
-            Debug.Log("Sprint");
+            //Debug.Log("Sprint");
             if (OnSprintInput != null)
             {
                 OnSprintInput(true);
@@ -83,17 +88,20 @@ public class InputManager : MonoBehaviour
                                     Input.GetKeyDown(KeyCode.RightControl);
         if (isPressCrouchInput)
         {
-            Debug.Log("Crouch");
+            OnCrouchInput();
         }
     }
     
     private void CheckChangePOVInput()
     {
         bool isPressChangePOVInput = Input.GetKeyDown(KeyCode.Q);
-    
+ 
         if (isPressChangePOVInput)
         {
-            Debug.Log("Change POV");
+            if (OnChangePOV != null)
+            {
+                OnChangePOV();
+            }
         }
     }
     
@@ -110,10 +118,14 @@ public class InputManager : MonoBehaviour
     private void CheckGlideInput()
     {
         bool isPressGlideInput = Input.GetKeyDown(KeyCode.G);
-    
+        
         if (isPressGlideInput)
         {
-            Debug.Log("Glide");
+            //Debug.Log("Glide Input Pressed");
+            if (OnGlideInput != null)
+            {
+                OnGlideInput();
+            }
         }
     }
     
@@ -123,10 +135,22 @@ public class InputManager : MonoBehaviour
  
         if (isPressCancelInput)
         {
-            Debug.Log("Cancel Climb or Glide");
+            //Debug.Log("Cancel Climb or Glide");
             if (OnCancelClimb != null)
             {
                 OnCancelClimb();
+            }
+        }
+        
+        if (isPressCancelInput)
+        {
+            if (OnCancelClimb != null)
+            {
+                OnCancelClimb();
+            }
+            if (OnCancelGlide != null)
+            {
+                OnCancelGlide();
             }
         }
     }
@@ -134,10 +158,9 @@ public class InputManager : MonoBehaviour
     private void CheckPunchInput()
     {
         bool isPressPunchInput = Input.GetKeyDown(KeyCode.Mouse0);
-    
         if (isPressPunchInput)
         {
-            Debug.Log("Punch");
+            OnPunchInput();
         }
     }
     
@@ -147,7 +170,11 @@ public class InputManager : MonoBehaviour
     
         if (isPressMainMenuInput)
         {
-            Debug.Log("Back To Main Menu");
+            //Debug.Log("Back To Main Menu");
         }
     }
+
+    	
+ 
+
 }
