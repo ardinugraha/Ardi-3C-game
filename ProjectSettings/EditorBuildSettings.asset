@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Game/Scenes/MainMenu.unity
+  - enabled: 0
+    path: Assets/Basic/Scenes/MainMenu.unity
     guid: 8e1996fcfc6c04f48a505380f0e08d93
-  - enabled: 1
-    path: Assets/Game/Scenes/Gameplay.unity
+  - enabled: 0
+    path: Assets/Basic/Scenes/Gameplay.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Blockout/Scene/MainMenuBlockout.unity
+    guid: 3672b8c2e246ec74f8c89a6cc8256e2f
+  - enabled: 1
+    path: Assets/Blockout/Scene/Blockout.unity
+    guid: ad55303c46e73c8499fb5aa28c8f6a71
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
